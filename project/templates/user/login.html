@@ -1,0 +1,38 @@
+{% extends "layout/base.html" %}
+<link rel="stylesheet" href="staticfiles/css/login.css">
+{% block title %}
+Login
+{% endblock title %}
+
+{% block content %}
+{% include "include/messages.html" %}
+<div class="pt-5"></div>
+<div class="col-md-4 mx-auto mt-3 text-white pt-5 border border-white rounded-4 bg-dark">
+    <div class="text-center pb-4">
+        <h1>Login</h1>
+    </div>
+    <form action="/login/store" method="post">
+        {% csrf_token %}
+        <div class="mb-3 mx-5">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" />
+        </div>
+        <div class="mb-3 mx-5 ">
+            <label for="email">Gmail</label>
+            <input type="text" class="form-control" id="email" name="email" />
+        </div>
+        <div class="mb-3 mx-5">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" />
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary col-12 col-md-3">Log In</button>
+        </div>
+        <div class="input-group justify-content-center">
+            <p>Don't have an Account?</p>
+            <a href="/signup/create">Signup</a>
+        </div>
+        <div class="mb-5"></div>
+    </form>
+</div>
+{% endblock content %}
